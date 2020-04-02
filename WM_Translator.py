@@ -16,10 +16,10 @@ class Translator(object):
         df_bodon = pd.DataFrame()
 
         # To mount data from BOD Order Numbers and store it in df_bodon for cleansing.
-        sheet_list = ["Term Agreement", "In-house", "TIFF"]
-        for i in sheet_list:
-            pd.set_option("display.max_columns", None)
-            df_temp = pd.read_excel(self.path, sheet_name = i)
+        xlsx = pd.ExcelFile(self.path)
+        sheet_list = xlsx.sheet_names
+        for sheet in sheet_list:
+            df_temp = pd.read_excel(self.path, sheet_name = sheet)
             df_temp = df_temp.iloc[:, 0:2]
             column_list = ["BOD_Order", "BES"]
             df_temp.columns = column_list
