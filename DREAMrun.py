@@ -1,13 +1,9 @@
-import numpy as np
 import pandas as pd
 from datetime import datetime
-import re
 import os
 import shutil
-from WM_Translator import Translator
-from WM_DREAM_beta import WM_DREAM
-from SM_DREAM_beta import SM_DREAM
-
+from WM_DREAM import WM_DREAM
+from SM_DREAM import SM_DREAM
 
 
 if __name__ == "__main__":
@@ -43,7 +39,7 @@ if __name__ == "__main__":
     df_sm.to_excel(writer, sheet_name = "IH_SM")
     writer.save()
 
-    # Create copies of EAM data and save to archieve
+    # Create copies of EAM data and save to archive
     origin = "C:\\Users\\wwang\\Desktop\\Monty\\DREAM\\"
     target = "N:\\Program Controls\\CTR Program Controls\\Scheduling\\IH Schedules\\IH Daily Progress Updates_Sewer_WM\\" + \
              year + "\\DREAM_archieve\\"
