@@ -30,7 +30,8 @@ if __name__ == "__main__":
     mon_str = datetime.now().strftime("%b")
     year = datetime.now().strftime("%Y")
     date_str = datetime.strftime(datetime.now(), "%m%d%Y")
-    # 
+
+    # Export path of EAM-Report
     pathout = "USER INPUT" + \
               year + "\\" + mon_int + " - " + mon_str + "\\EAM-Report_" + date_str + ".xlsx"
 
