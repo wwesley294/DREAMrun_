@@ -8,12 +8,12 @@ from SM_DREAM import SM_DREAM
 
 if __name__ == "__main__":
 
-    # Link to Vito's secrete spreadsheet
-    path = "N:\\Water Main\\ProjectDocs\\BOD Order Numbers.xls"
+    # Link to BOD Order Numbers
+    path = "USER INPUT"
     # Link to WM-EAM download
-    trail = "C:\\Users\\wwang\\Desktop\\Monty\\DREAM\\WM_DREAM.xlsx"
+    trail = "USER INPUT"
     # Link to SM-EAM download
-    track = "C:\\Users\\wwang\\Desktop\\Monty\\DREAM\\SM_DREAM.xlsx"
+    track = "USER INPUT"
 
     box = WM_DREAM(path, trail)
     box.load_bodon()
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     year = datetime.now().strftime("%Y")
     date_str = datetime.strftime(datetime.now(), "%m%d%Y")
     # 
-    pathout = "N:\\Program Controls\\CTR Program Controls\\Scheduling\\IH Schedules\\IH Daily Progress Updates_Sewer_WM\\" + \
+    pathout = "USER INPUT" + \
               year + "\\" + mon_int + " - " + mon_str + "\\EAM-Report_" + date_str + ".xlsx"
 
     writer = pd.ExcelWriter(pathout)
@@ -40,8 +40,8 @@ if __name__ == "__main__":
     writer.save()
 
     # Create copies of EAM data and save to archive
-    origin = "C:\\Users\\wwang\\Desktop\\Monty\\DREAM\\"
-    target = "N:\\Program Controls\\CTR Program Controls\\Scheduling\\IH Schedules\\IH Daily Progress Updates_Sewer_WM\\" + \
+    origin = "USER INPUT"
+    target = "USER INPUT" + \
              year + "\\DREAM_archieve\\"
     shutil.copy(os.path.join(origin, "WM_DREAM.xlsx"), os.path.join(target, ("WM_DREAM_" + date_str + ".xlsx")))
     shutil.copy(os.path.join(origin, "SM_DREAM.xlsx"), os.path.join(target, ("SM_DREAM_" + date_str + ".xlsx")))
