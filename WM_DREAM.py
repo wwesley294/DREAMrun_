@@ -23,7 +23,7 @@ class WM_DREAM(object):
     def dream_import(self):
 
         # To mount data from WM-EAM download and store it in df_og for further cleansing.
-        powerball = [1, 3, 4, 5, 6, 9, 10, 13, 14]
+        powerball = [1, 3, 4, 5, 6, 9, 10, 13, 14, 15]
         df_og = pd.read_excel(self.trail, usecols=powerball)
         row = df_og.shape[0] - 1
         df_og = df_og.iloc[3:row, :]
@@ -94,7 +94,7 @@ class WM_DREAM(object):
         foreman = df_temp.loc[0, "Foreman"]
 
         # To remove duplicate data with criteria: report number, 8in daily footage, and 12in daily footage.
-        df_footcalc = df_temp.drop_duplicates(subset=["ReportNo", "8in_Daily", "12in_Daily"])
+        df_footcalc = df_temp.drop_duplicates(subset=["ReportNo", "8in_Daily", "12in_Daily", "16in_Daily"])
 
         """
         
@@ -103,7 +103,7 @@ class WM_DREAM(object):
         """
 
         # To calculate the total footage of the project.
-        footage = round((df_footcalc["8in_Daily"].sum() + df_footcalc["12in_Daily"].sum()), 1)
+        footage = round((df_footcalc["8in_Daily"].sum() + df_footcalc["12in_Daily"].sum() + df_footcalc["16in_Daily"].sum()), 1)
 
         # To produce a new dictionary from the given sequence of task with a value of 0.
         template = dict.fromkeys(tasks, 0)
